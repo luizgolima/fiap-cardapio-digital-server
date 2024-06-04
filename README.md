@@ -7,21 +7,31 @@ Este é um exemplo de uma aplicação Spring para um cardápio digital, que perm
 - Listar alimentos disponíveis no cardápio.
 - Adicionar novos alimentos ao cardápio.
 
+## Repositórios complementares
+
+- [Repositório do cliente iOS](https://github.com/luizgolima/fiap-cardapio-digital-ios)
+- [Repositório do cliente web](https://github.com/luizgolima/fiap-cardapio-digital-client)
+
 ## Arquitetura
 
 A arquitetura da aplicação segue o seguinte padrão:
 
 ```mermaid
-graph
-subgraph "Cliente"
-A(Interface Web ou Mobile) --> B[FoodController]
-end
-subgraph "Servidor"
-B --> C[FoodService]
-C --> D[FoodRepository]
-end
-D --> E((Banco de Dados))
-E -->|PostgreSQL| F(RDS da AWS)
+graph TD;
+    subgraph "Cliente Mobile (iOS)"
+        A[ContentView] -->|HTTP Request| B(APIClient)
+    end
+    subgraph "Cliente Web (React)"
+        C[App] -->|HTTP Request| D(useFoodData)
+    end
+    subgraph "Servidor Spring"
+        B --> E[FoodController]
+        D --> E
+        E --> F[FoodService]
+        F --> G[FoodRepository]
+    end
+G --> H((Banco de Dados))
+H -->|PostgreSQL| I(RDS da AWS)
 ```
 
 
@@ -38,7 +48,7 @@ A entidade do banco de dados é representada pela tabela `foods`, que possui os 
 - JDK (Java Development Kit) 17
 - Maven
 
-## Instalação e Execução
+## Instalação e Execução Local
 1. Clone este repositório:
    ```bash
    git clone https://github.com/luizgolima/fiap-cardapio-digital-server.git
@@ -55,9 +65,4 @@ A entidade do banco de dados é representada pela tabela `foods`, que possui os 
    ```bash
    mvn spring-boot:run
    ```
-
-## Repositórios complementares
-
-- [Repositório do cliente iOS](https://github.com/luizgolima/fiap-cardapio-digital-ios)
-- [Repositório do cliente web](https://github.com/luizgolima/fiap-cardapio-digital-client)
 
