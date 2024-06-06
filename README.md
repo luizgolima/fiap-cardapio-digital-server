@@ -69,4 +69,6 @@ A entidade do banco de dados é representada pela tabela `foods`, que possui os 
    ```bash
    mvn spring-boot:run
    ```
+   
+A aplicação estará disponível em `http://localhost:8080`.
 
