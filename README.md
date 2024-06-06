@@ -12,6 +12,10 @@ Este é um exemplo de uma aplicação Spring para um cardápio digital, que perm
 - [Repositório do cliente iOS](https://github.com/luizgolima/fiap-cardapio-digital-ios)
 - [Repositório do cliente web](https://github.com/luizgolima/fiap-cardapio-digital-client)
 
+## Aplicações no ar (deploy)
+- [Frontend](https://fiap-cardapio-digital-client.onrender.com)
+- [Backend](https://fiap-cardapio-digital-server.onrender.com/food)
+
 ## Arquitetura
 
 A arquitetura da aplicação segue o seguinte padrão:
